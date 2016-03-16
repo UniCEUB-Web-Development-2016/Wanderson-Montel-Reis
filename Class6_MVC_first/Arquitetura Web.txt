@@ -1,0 +1,1 @@
+Faltou transformar a classe layoutManager e seus LayoutsControlers em Java Script e a outra parte da arquitetura.
