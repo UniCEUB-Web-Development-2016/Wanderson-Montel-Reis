@@ -3,12 +3,12 @@
 include_once "model/Request.php";
 class RequestController
 {
-    public function createRequest($protocol, $method, $uri, $server_addr)
+    public function createRequest($method, $protocol, $uri, $server_addr)
     {
         $uri_array = explode("/", $uri);
         return new Request(
-            $protocol,
             $method,
+            $protocol,
             $uri_array[2],
             $this->getParams($uri_array[3]),
             $server_addr);
