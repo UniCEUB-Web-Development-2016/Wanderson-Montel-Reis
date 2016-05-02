@@ -1,21 +1,21 @@
 <?php
 
-class Request
+class User
 {
     private $name;
     private $cpf;
     private $email;
     private $logon;
-    private $password;
+    private $passwd;
 
     //CONSTRUCTOR
-    public function __construct($name, $cpf, $email, $logon, $password)
+    public function __construct($name, $cpf, $email, $logon, $passwd)
     {
         $this->setName($name);
         $this->setCpf($cpf);
         $this->setEmail($email);
         $this->setLogon($logon);
-        $this->setPassword($password);
+        $this->setPasswd($passwd);
 
     }
 
@@ -40,9 +40,9 @@ class Request
         return $this->logon;
     }
 
-    public function getPassword()
+    public function getPasswd()
     {
-        return $this->password;
+        return $this->passwd;
     }
 
     //SET
@@ -66,9 +66,9 @@ class Request
         $this->logon = $logon;
     }
 
-    public function setPassword($password)
+    public function setPasswd($passwd)
     {
-        $this->password = $password;
+        $this->passwd = $passwd;
     }
 
 }

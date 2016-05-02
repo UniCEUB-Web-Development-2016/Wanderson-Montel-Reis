@@ -1,52 +1,39 @@
 <?php
 
-class Request
+class Logon
 {
-    private $cpf;
     private $logon;
-    private $password;
+    private $passwd;
 
     //CONSTRUCTOR
-    public function __construct($cpf, $logon, $password)
+    public function __construct( $logon, $passwd)
     {
-        $this->setCpf($cpf);
         $this->setLogon($logon);
-        $this->setPassword($password);
+        $this->setPasswd($passwd);
 
     }
 
     //GET
-
-    public function getCpf()
-    {
-        return $this->cpf;
-    }
-
     public function getLogon()
     {
         return $this->logon;
     }
 
-    public function getPassword()
+    public function getPasswd()
     {
-        return $this->password;
+        return $this->passwd;
     }
 
     //SET
-
-    public function setCpf($cpf)
-    {
-        $this->cpf = $cpf;
-    }
 
     public function setLogon($logon)
     {
         $this->logon = $logon;
     }
 
-    public function setPassword($password)
+    public function setPasswd($passwd)
     {
-        $this->password = $password;
+        $this->passwd = $passwd;
     }
 
 }

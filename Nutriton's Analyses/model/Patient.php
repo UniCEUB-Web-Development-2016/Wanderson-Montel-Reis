@@ -1,6 +1,6 @@
 <?php
 
-class Request
+class Patient
 {
     private $fileName;
 

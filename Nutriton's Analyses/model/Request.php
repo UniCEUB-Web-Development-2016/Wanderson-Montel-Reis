@@ -11,59 +11,51 @@ class Request
 
     public function __construct($protocol, $method, $resource, $params, $server_addr)
     {
-        $this->set_protocol($protocol);
-        $this->set_method($method);
-        $this->set_resource($resource);
-        $this->set_params($params);
-        $this->set_server_addr($server_addr);
-    }
-
-
-    private function set_protocol($protocol)
-    {
         $this->protocol = $protocol;
-    }
-
-    private function set_method($method)
-    {
         $this->method = $method;
-    }
-
-    private function set_resource($resource)
-    {
         $this->resource = $resource;
-    }
-
-    private function set_params($params)
-    {
         $this->params = $params;
-    }
-
-    private function set_server_addr($server_addr)
-    {
         $this->server_addr = $server_addr;
     }
 
-    public function get_resource()
-    {
+
+    public function getProtocol(){
+        return $this->protocol;
+    }
+
+    public function setProtocol($protocol){
+        $this->protocol = $protocol;
+    }
+
+    public function getMethod(){
+        return $this->method;
+    }
+
+    public function setMethod($method){
+        $this->method = $method;
+    }
+
+    public function getResource(){
         return $this->resource;
     }
 
+    public function setResource($resource){
+        $this->resource = $resource;
+    }
 
+    public function getParams(){
+        return $this->params;
+    }
 
+    public function setParams($params){
+        $this->params = $params;
+    }
 
+    public function getServer_addr(){
+        return $this->server_addr;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public function setServer_addr($server_addr){
+        $this->server_addr = $server_addr;
+    }
 }
