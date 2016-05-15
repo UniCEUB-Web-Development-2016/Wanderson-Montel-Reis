@@ -25,12 +25,12 @@ class DatabaseConnector
         try{
             $connection = new PDO($stringPDO,
                 $this->user, 
-                $this->passwd);           
-        return $connection;
+                $this->passwd); 
         
         }catch(PDOException $e)
         {
-            echo 'Connection failed: '.$e->getMessage();
+            var_dump($e);
         }
+        return $connection;
     }
 }

@@ -11,11 +11,11 @@ class Request
 
     public function __construct($protocol, $method, $resource, $params, $server_addr)
     {
-        $this->getProtocol($protocol);
-        $this->getMethod($method);
-        $this->getResource($resource);
-        $this->getParams($params);
-        $this->getServer_addr($server_addr);
+        $this->setProtocol($protocol);
+        $this->setMethod($method);
+        $this->setResource($resource);
+        $this->setParams($params);
+        $this->setServer_addr($server_addr);
     }
 
 
