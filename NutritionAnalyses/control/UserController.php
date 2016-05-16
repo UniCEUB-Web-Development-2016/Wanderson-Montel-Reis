@@ -43,7 +43,7 @@ class UserController
         {
             echo "Error 400: Bad Request";
         }
-    }continuaa......
+    }/*continuaa......*/
     private function generateInsertQuery($user)
     {
         $query =  "INSERT INTO user (name, cpf, email, logon, passwd) 
