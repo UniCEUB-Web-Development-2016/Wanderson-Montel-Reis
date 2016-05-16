@@ -5,19 +5,45 @@ include_once "database/DatabaseConnector.php";
 
 class UserController
 {
+    private $requiredParams = ["name", "cpf","email","logon","passwd"];
     public function register($request)
     {
         $params = $request->getParams();
-        $user = new User($params["name"],
-            $params["cpf"],
-            $params["email"],
-            $params["logon"],
-            $params["passwd"]);
+        if($this->isValid($params)){
+            $user = new User($params["name"],
+                $params["cpf"],
+                $params["email"],
+                $params["logon"],
+                $params["passwd"]);
+
         $db = new DatabaseConnector("localhost", "NutritionAnalyses", "mysql", "", "root", "");
         $conn = $db->getConnection();
 
         return $conn->query($this->generateInsertQuery($user));
+        }else
+        {
+            echo "Error 400: Bad Request";
+        }
     }
+    public function register($request)
+    {
+        $params = $request->getParams();
+        if($this->isValid($params)){
+            $user = new User($params["name"],
+                $params["cpf"],
+                $params["email"],
+                $params["logon"],
+                $params["passwd"]);
+
+        $db = new DatabaseConnector("localhost", "NutritionAnalyses", "mysql", "", "root", "");
+        $conn = $db->getConnection();
+
+        return $conn->query($this->generateInsertQuery($user));
+        }else
+        {
+            echo "Error 400: Bad Request";
+        }
+    }continuaa......
     private function generateInsertQuery($user)
     {
         $query =  "INSERT INTO user (name, cpf, email, logon, passwd) 
@@ -29,6 +55,19 @@ class UserController
             $user->getPasswd()."')";
         return $query;
     }
+
+    private function generateUpdateQuery($user)
+    {
+        $query =  "UPDATE user SET 
+            name = '".$user->getName()."', 
+            cpf = '".$user->getCpf()."', 
+            email = '".$user->getEmail()."', 
+            logon = '".$user->getLogon()."', 
+            passwd = '".$user->getPasswd()."' WHERE id_user = '".$user->getId_user()."' ";
+
+        return $query;
+    }
+
     public function search($request)
     {
         $params = $request->getParams();
@@ -49,4 +88,14 @@ class UserController
         return substr($criteria, 0, -4);
     }
     /*http://localhost/NutritionAnalyses/User/?name=wanderson&cpf=12314124&email=asdasd213@asd&logon=123asd&passwd=123asd*/
+    
+    private function isValid($params)
+    {
+        $keys = array_keys($params);
+        $diff1 = array_diff($keys, $this->requiredParams);
+        $diff2 = array_diff($this->requiredParams, $keys);
+        if (empty($diff2) && empty($diff1))
+            return true;
+        return false;
+    }
 }

@@ -4,9 +4,11 @@ include_once "model/Patient.php";
 include_once "database/DatabaseConnector.php";
 
 class PatientController{
+    private $requiredParams = ["fileName", "namePatient", "id_logon"];
 	public function register($request)
     {
         $params = $request ->getParams();
+        if($this->isValid($params)){
         $patient = new Patient(            
             $params["fileName"],
             $params["namePatient"],
@@ -16,6 +18,10 @@ class PatientController{
         $db = new DatabaseConnector ("localhost", "NutritionAnalyses", "mysql", "", "root", "");
         $conn = $db->getConnection();
         return $conn->query($this->generateInsertQuery($patient));
+        }else
+        {
+            echo "Error 400: Bad Request";
+        }
 	}
 
     private function generateInsertQuery($patient)
@@ -47,6 +53,14 @@ class PatientController{
         }
         return substr($criteria, 0, -4);
     }
-    /*http://localhost/NutritionAnalyses/analyse/?nameAnalyse=Hemograma22&descAnalyse=exame de mama&patientAnalyse=Hemografia*/
-
+     
+     private function isValid($params)
+    {
+        $keys = array_keys($params);
+        $diff1 = array_diff($keys, $this->requiredParams);
+        $diff2 = array_diff($this->requiredParams, $keys);
+        if (empty($diff2) && empty($diff1))
+            return true;
+        return false;
+    }
 }

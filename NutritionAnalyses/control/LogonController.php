@@ -6,10 +6,12 @@ include_once "database/DatabaseConnector.php";
 
 class LogonController
 {
+    private $requiredParams = ["logon", "passwd", "id_user"];
     public function register($request)
     {
         $params = $request ->getParams();
-        $logon = new Logon(
+        if($this->isValid($params)){
+            $logon = new Logon(
             $params["logon"],
             $params["passwd"],
             $params["id_user"]);
@@ -17,7 +19,10 @@ class LogonController
         $db = new DatabaseConnector ("localhost", "NutritionAnalyses", "mysql", "", "root", "");
         $conn = $db->getConnection();
         return $conn->query($this->generateInsertQuery($logon));
-
+        }else
+        {
+            echo "Error 400: Bad Request";
+        }
     }
 
     private function generateInsertQuery($logon)
@@ -49,20 +54,16 @@ class LogonController
         }
         return substr($criteria, 0, -4);
     }
+     private function isValid($params)
+    {
+        $keys = array_keys($params);
+        $diff1 = array_diff($keys, $this->requiredParams);
+        $diff2 = array_diff($this->requiredParams, $keys);
+        if (empty($diff2) && empty($diff1))
+            return true;
+        return false;
+    }
 
 }
-    /*private function generateValidLogon($user){
-        $query1 =  "SELECT user (logon, passwd, id_user) VALUES (
-        '".$user->getLogon()."','".
-            $user->getPasswd()."','".
-            $user->getId_user()."')";
-
-        $query2 = "SELECT logon (logon, passwd, id_user) VALUES (
-        '".$logon->getLogon()."','".
-            $logon->getPasswd()."','".
-            $logon->getId_user()."')";
-
-        $arrayValid = array_diff($query1, query2)
-        return echo '$arrayValid';        
-    }*/
+    
 

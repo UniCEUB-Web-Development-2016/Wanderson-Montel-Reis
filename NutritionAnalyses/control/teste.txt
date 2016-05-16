@@ -1,0 +1,11 @@
+Inserts
+http://localhost/NutritionAnalyses/user/?name=wanderson&cpf=12314124&email=asdasd213@asd&logon=123asd&passwd=123asd
+http://localhost/NutritionAnalyses/logon/?logon=123asd&passwd=123asd
+http://localhost/NutritionAnalyses/patient/?fileName=we&namePatient=carlos&id_logon=2
+http://localhost/NutritionAnalyses/analyse/?nameAnalyse=hemograma&descAnalyse=exame&id_patient=6
+
+Selects
+http://localhost/NutritionAnalyses/user/?name=wanderson
+http://localhost/NutritionAnalyses/logon/?logon=asd
+http://localhost/NutritionAnalyses/patient/?namePatient=carlos
+http://localhost/NutritionAnalyses/analyse/?nameAnalyse=hemograma

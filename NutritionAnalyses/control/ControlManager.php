@@ -33,8 +33,10 @@ class ControlManager
 				return $this->resourceController->createResource($request);
 				break;
 			case "PUT":
+				return $this->resourceController->updateResource($request);
 				break;
 			case "DELETE":
+				return $this->resourceController->deleteResource($request);
 				break;
 			default:
 
