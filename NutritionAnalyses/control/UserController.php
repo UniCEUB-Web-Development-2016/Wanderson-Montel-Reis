@@ -25,25 +25,7 @@ class UserController
             echo "Error 400: Bad Request";
         }
     }
-    public function register($request)
-    {
-        $params = $request->getParams();
-        if($this->isValid($params)){
-            $user = new User($params["name"],
-                $params["cpf"],
-                $params["email"],
-                $params["logon"],
-                $params["passwd"]);
-
-        $db = new DatabaseConnector("localhost", "NutritionAnalyses", "mysql", "", "root", "");
-        $conn = $db->getConnection();
-
-        return $conn->query($this->generateInsertQuery($user));
-        }else
-        {
-            echo "Error 400: Bad Request";
-        }
-    }/*continuaa......*/
+    
     private function generateInsertQuery($user)
     {
         $query =  "INSERT INTO user (name, cpf, email, logon, passwd) 
