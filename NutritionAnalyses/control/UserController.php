@@ -51,16 +51,7 @@ class UserController
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
     
-    private function generateCriteria($params)
-    {
-        $criteria = "";
-        foreach($params as $key => $value)
-        {
-            $criteria = $criteria.$key." LIKE '".$value."' AND ";
-        }
-        return substr($criteria, 0, -4);
-    }
-
+    
     public function delete($request)
     {
         $params = $request->getParams();
@@ -99,12 +90,21 @@ class UserController
         }
     }     
 
+    private function generateCriteria($params)
+    {
+        $criteria = "";
+        foreach($params as $key => $value)
+        {
+            $criteria = $criteria.$key." LIKE '".$value."' AND ";
+        }
+        return substr($criteria, 0, -4);
+    }
+
     private function isValid($params)
     {
         $keys = array_keys($params);
         $diff1 = array_diff($keys, $this->requiredParams);
         $diff2 = array_diff($this->requiredParams, $keys);
-        var_dump($diff1);
         if (empty($diff2) && empty($diff1))
             return true;
         return false;

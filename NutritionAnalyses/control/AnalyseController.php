@@ -87,8 +87,9 @@ class AnalyseController{
             $criteria = $criteria.$key." LIKE '".$value."' AND ";
         }
         return substr($criteria, 0, -4);
-    }
-     private function isValid($params)
+    }   
+
+    private function isValid($params)
     {
         $keys = array_keys($params);
         $diff1 = array_diff($keys, $this->requiredParams);
@@ -96,6 +97,5 @@ class AnalyseController{
         if (empty($diff2) && empty($diff1))
             return true;
         return false;
-    }
-
+    } 
 }

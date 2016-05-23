@@ -4,28 +4,28 @@ http://localhost/NutritionAnalyses/user/?name=wanderson&cpf=12314124&email=asdas
 
 http://localhost/NutritionAnalyses/logon/?logon=123asd&passwd=123asd
 
-http://localhost/NutritionAnalyses/patient/?protocolo=234234&logon=123asd&fileName=exame&namePatient=WandersonReis
+http://localhost/NutritionAnalyses/patient/?protocolo=234234&fileName=exame&namePatient=Wanderson&logon=123asd
 
-http://localhost/NutritionAnalyses/analyse/?nameAnalyse=Hemograma&descAnalyse=Exame de sangue&protocolo=123456
+http://localhost/NutritionAnalyses/analyse/?nameAnalyse=Hemograma&descAnalyse=ExameDeSangue&protocolo=234234
 
 Selects
-http://localhost/NutritionAnalyses/user/?name=carlos&cpf=4321&email=carlos@leao&logon=123asd&passwd=1234
+http://localhost/NutritionAnalyses/user/?name=carlos&cpf=4321&email=carlos@leao&logon=123asd&passwd=123asd
 
-http://localhost/NutritionAnalyses/logon/?logon=123asd&passwd=1234
+http://localhost/NutritionAnalyses/logon/?logon=123asd&passwd=123asd
 
-http://localhost/NutritionAnalyses/patient/?protocolo=234234&logon=123asd&fileName=exame de sangue&namePatient=WandersonReis
+http://localhost/NutritionAnalyses/patient/?protocolo=234234&fileName=exame&namePatient=Wanderson&logon=123asd
 
-http://localhost/NutritionAnalyses/analyse/?nameAnalyse=hemograma
+http://localhost/NutritionAnalyses/analyse/?nameAnalyse=Hemograma&descAnalyse=ExameDeSangue&protocolo=234234
 
 
 Update
-http://localhost/NutritionAnalyses/user/?name=RuanCarlos&cpf=4321&email=carlos@leao&logon=asd22&passwd=123
+http://localhost/NutritionAnalyses/user/?name=RuanCarlos&cpf=4321&email=carlos@leao&logon=123asd&passwd=123
 
-http://localhost/NutritionAnalyses/logon/?logon=asd22&passwd=2424
+http://localhost/NutritionAnalyses/logon/?logon=123asd&passwd=2424
 
-http://localhost/NutritionAnalyses/patient/?protocolo=234234&logon=123asd&fileName=exame&namePatient=Wanderson
+http://localhost/NutritionAnalyses/patient/?protocolo=234234&fileName=ExameDeSangue&namePatient=WandersonReis&logon=123asd
 
-http://localhost/NutritionAnalyses/analyse/?nameAnalyse=Hemograma&descAnalyse=Exame de sangue do paciente WandersonReis&protocolo=123456
+http://localhost/NutritionAnalyses/analyse/?nameAnalyse=Hemograma&descAnalyse=Exame do paciente WandersonReis&protocolo=234234
 
 
 Delete

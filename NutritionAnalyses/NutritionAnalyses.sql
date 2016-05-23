@@ -26,8 +26,6 @@ DROP TABLE IF EXISTS `nutritionanalyses`.`user` ;
 
 CREATE  TABLE IF NOT EXISTS `nutritionanalyses`.`user` (
 
-  `id_user` INT NOT NULL AUTO_INCREMENT ,
-
   `name` VARCHAR(45) NOT NULL ,
 
   `cpf` VARCHAR(45) NOT NULL ,
@@ -38,9 +36,11 @@ CREATE  TABLE IF NOT EXISTS `nutritionanalyses`.`user` (
 
   `passwd` TEXT NOT NULL ,
 
-  PRIMARY KEY (`id_user`) )
+  PRIMARY KEY (`logon`) )
 
-ENGINE = InnoDB;
+ENGINE = InnoDB
+
+DEFAULT CHARACTER SET = latin1;
 
 
 
@@ -58,29 +58,27 @@ DROP TABLE IF EXISTS `nutritionanalyses`.`logon` ;
 
 CREATE  TABLE IF NOT EXISTS `nutritionanalyses`.`logon` (
 
-  `id_logon` INT NOT NULL AUTO_INCREMENT ,
+  `passwd` VARCHAR(45) NOT NULL ,
 
   `logon` VARCHAR(45) NOT NULL ,
 
-  `passwd` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`logon`) ,
 
-  `id_user` INT NOT NULL ,
+  INDEX `fk_logon_user1` (`logon` ASC) ,
 
-  PRIMARY KEY (`id_logon`) ,
+  CONSTRAINT `fk_logon_user1`
 
-  INDEX `fk_logon_user` (`id_user` ASC) ,
+    FOREIGN KEY (`logon` )
 
-  CONSTRAINT `fk_logon_user`
-
-    FOREIGN KEY (`id_user` )
-
-    REFERENCES `nutritionanalyses`.`user` (`id_user` )
+    REFERENCES `nutritionanalyses`.`user` (`logon` )
 
     ON DELETE NO ACTION
 
     ON UPDATE NO ACTION)
 
-ENGINE = InnoDB;
+ENGINE = InnoDB
+
+DEFAULT CHARACTER SET = latin1;
 
 
 
@@ -98,29 +96,31 @@ DROP TABLE IF EXISTS `nutritionanalyses`.`patient` ;
 
 CREATE  TABLE IF NOT EXISTS `nutritionanalyses`.`patient` (
 
-  `id_patient` INT NOT NULL AUTO_INCREMENT ,
+  `protocolo` VARCHAR(45) NOT NULL ,
 
   `fileName` TEXT NOT NULL ,
 
-  `id_logon` INT NOT NULL ,
-
   `namePatient` VARCHAR(45) NOT NULL ,
 
-  PRIMARY KEY (`id_patient`) ,
+  `logon` VARCHAR(45) NOT NULL ,
 
-  INDEX `fk_patient_logon1` (`id_logon` ASC) ,
+  PRIMARY KEY (`protocolo`) ,
+
+  INDEX `fk_patient_logon1` (`logon` ASC) ,
 
   CONSTRAINT `fk_patient_logon1`
 
-    FOREIGN KEY (`id_logon` )
+    FOREIGN KEY (`logon` )
 
-    REFERENCES `nutritionanalyses`.`logon` (`id_logon` )
+    REFERENCES `nutritionanalyses`.`logon` (`logon` )
 
     ON DELETE NO ACTION
 
     ON UPDATE NO ACTION)
 
-ENGINE = InnoDB;
+ENGINE = InnoDB
+
+DEFAULT CHARACTER SET = latin1;
 
 
 
@@ -128,39 +128,39 @@ ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 
--- Table `nutritionanalyses`.`analyses`
+-- Table `nutritionanalyses`.`analyse`
 
 -- -----------------------------------------------------
 
-DROP TABLE IF EXISTS `nutritionanalyses`.`analyses` ;
+DROP TABLE IF EXISTS `nutritionanalyses`.`analyse` ;
 
 
 
-CREATE  TABLE IF NOT EXISTS `nutritionanalyses`.`analyses` (
-
-  `id_analyses` INT NOT NULL AUTO_INCREMENT ,
+CREATE  TABLE IF NOT EXISTS `nutritionanalyses`.`analyse` (
 
   `nameAnalyse` VARCHAR(45) NOT NULL ,
 
-  `descAnayse` VARCHAR(45) NOT NULL ,
+  `descAnalyse` VARCHAR(100) NOT NULL ,
 
-  `id_patient` INT NOT NULL ,
+  `protocolo` VARCHAR(45) NOT NULL ,
 
-  PRIMARY KEY (`id_analyses`) ,
+  PRIMARY KEY (`nameAnalyse`) ,
 
-  INDEX `fk_analyses_patient1` (`id_patient` ASC) ,
+  INDEX `fk_analyses_patient1` (`protocolo` ASC) ,
 
   CONSTRAINT `fk_analyses_patient1`
 
-    FOREIGN KEY (`id_patient` )
+    FOREIGN KEY (`protocolo` )
 
-    REFERENCES `nutritionanalyses`.`patient` (`id_patient` )
+    REFERENCES `nutritionanalyses`.`patient` (`protocolo` )
 
     ON DELETE NO ACTION
 
     ON UPDATE NO ACTION)
 
-ENGINE = InnoDB;
+ENGINE = InnoDB
+
+DEFAULT CHARACTER SET = latin1;
 
 
 
@@ -173,3 +173,5 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+SET FOREIGN_KEY_CHECKS=0;

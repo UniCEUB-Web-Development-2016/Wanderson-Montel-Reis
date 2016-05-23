@@ -26,4 +26,13 @@ class RequestController
 		}
 		return $paramsMap;
 	}
+	private function isValid($params)
+    {
+        $keys = array_keys($params);
+        $diff1 = array_diff($keys, $this->requiredParams);
+        $diff2 = array_diff($this->requiredParams, $keys);
+        if (empty($diff2) && empty($diff1))
+            return true;
+        return false;
+    }
 }
