@@ -1,11 +1,38 @@
+
 Inserts
 http://localhost/NutritionAnalyses/user/?name=wanderson&cpf=12314124&email=asdasd213@asd&logon=123asd&passwd=123asd
+
 http://localhost/NutritionAnalyses/logon/?logon=123asd&passwd=123asd
-http://localhost/NutritionAnalyses/patient/?fileName=we&namePatient=carlos&id_logon=2
-http://localhost/NutritionAnalyses/analyse/?nameAnalyse=hemograma&descAnalyse=exame&id_patient=6
+
+http://localhost/NutritionAnalyses/patient/?protocolo=234234&logon=123asd&fileName=exame&namePatient=WandersonReis
+
+http://localhost/NutritionAnalyses/analyse/?nameAnalyse=Hemograma&descAnalyse=Exame de sangue&protocolo=123456
 
 Selects
-http://localhost/NutritionAnalyses/user/?name=wanderson
-http://localhost/NutritionAnalyses/logon/?logon=asd
-http://localhost/NutritionAnalyses/patient/?namePatient=carlos
+http://localhost/NutritionAnalyses/user/?name=carlos&cpf=4321&email=carlos@leao&logon=123asd&passwd=1234
+
+http://localhost/NutritionAnalyses/logon/?logon=123asd&passwd=1234
+
+http://localhost/NutritionAnalyses/patient/?protocolo=234234&logon=123asd&fileName=exame de sangue&namePatient=WandersonReis
+
 http://localhost/NutritionAnalyses/analyse/?nameAnalyse=hemograma
+
+
+Update
+http://localhost/NutritionAnalyses/user/?name=RuanCarlos&cpf=4321&email=carlos@leao&logon=asd22&passwd=123
+
+http://localhost/NutritionAnalyses/logon/?logon=asd22&passwd=2424
+
+http://localhost/NutritionAnalyses/patient/?protocolo=234234&logon=123asd&fileName=exame&namePatient=Wanderson
+
+http://localhost/NutritionAnalyses/analyse/?nameAnalyse=Hemograma&descAnalyse=Exame de sangue do paciente WandersonReis&protocolo=123456
+
+
+Delete
+http://localhost/NutritionAnalyses/user/?logon=asd22
+
+http://localhost/NutritionAnalyses/logon/?logon=123asd
+
+http://localhost/NutritionAnalyses/patient/?protocolo=234234
+
+http://localhost/NutritionAnalyses/analyse/?nameAnalyse=Hemograma

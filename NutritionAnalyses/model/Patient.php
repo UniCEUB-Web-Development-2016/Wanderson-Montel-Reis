@@ -2,16 +2,17 @@
 
 class Patient
 {
+    private $protocolo;
+    private $logon;
     private $fileName;
     private $namePatient;
-    private $id_logon;
-
     //CONSTRUCTOR
-    public function __construct($fileName, $namePatient, $id_logon){
+    public function __construct($protocolo, $logon, $fileName, $namePatient)
+    {
+        $this->setProtocolo($protocolo);
+        $this->setLogon($logon);
         $this->setFileName($fileName);
         $this->setNamePatient($namePatient);
-        $this->setId_logon($id_logon);
-
     }
 
     public function getFileName()
@@ -34,14 +35,23 @@ class Patient
         $this->namePatient = $namePatient;
     }
 
-    public function getId_logon()
+    public function getProtocolo()
     {
-        return $this->id_logon;
+        return $this->protocolo;
     }
 
-    public function setId_logon($id_logon)
+    public function setProtocolo($protocolo)
     {
-        $this->id_logon = $id_logon;
+        $this->protocolo = $protocolo;
     }
 
+    public function getLogon()
+    {
+        return $this->logon;
+    }
+
+    public function setLogon($logon)
+    {
+        $this->logon = $logon;
+    }
 }

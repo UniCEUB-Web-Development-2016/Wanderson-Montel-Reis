@@ -4,15 +4,15 @@ class Analyse
 {
     private $nameAnalyse; 
     private $descAnalyse;
-    private $id_patient;
+    private $protocolo;
 
     //CONSTRUCTOR
-    public function __construct($nameAnalyse, $descAnalyse, $id_patient)
+    public function __construct($nameAnalyse, $descAnalyse, $protocolo)
     {
 
         $this->setNameAnalyse($nameAnalyse);
         $this->setDescAnalyse($descAnalyse);
-        $this->setId_patient($id_patient);
+        $this->setProtocolo($protocolo);
     }
 
     public function getDescAnalyse()
@@ -25,9 +25,9 @@ class Analyse
         return $this->nameAnalyse;
     }
 
-    public function getId_patient()
+    public function getProtocolo()
     {
-        return $this->id_patient;
+        return $this->protocolo;
     }
 
     public function setDescAnalyse($descAnalyse)
@@ -40,8 +40,8 @@ class Analyse
         $this->nameAnalyse = $nameAnalyse;
     }
 
-    public function setId_patient($id_patient)
+    public function setProtocolo($protocolo)
     {
-        $this->id_patient = $id_patient;
+        $this->protocolo = $protocolo;
     }
 }

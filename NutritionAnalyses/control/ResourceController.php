@@ -23,9 +23,13 @@ class ResourceController
 		return (new $this->controlMap[$request->getResource()]())->search($request);
 	}
 	
+	public function deleteResource($request)
+	{
+		return (new $this->controlMap[$request->getResource()]())->delete($request);
+	}
+
 	public function updateResource($request)
 	{
-		return (new $this->controlMap[$request->getResource()]())->search($request);
+		return (new $this->controlMap[$request->getResource()]())->update($request);
 	}
-	
 }

@@ -6,15 +6,14 @@ include_once "database/DatabaseConnector.php";
 
 class LogonController
 {
-    private $requiredParams = ["logon", "passwd", "id_user"];
+    private $requiredParams = ["logon", "passwd"];
     public function register($request)
     {
         $params = $request ->getParams();
         if($this->isValid($params)){
             $logon = new Logon(
             $params["logon"],
-            $params["passwd"],
-            $params["id_user"]);
+            $params["passwd"]);
 
         $db = new DatabaseConnector ("localhost", "NutritionAnalyses", "mysql", "", "root", "");
         $conn = $db->getConnection();
@@ -27,10 +26,9 @@ class LogonController
 
     private function generateInsertQuery($logon)
     {
-        $query =  "INSERT INTO logon (logon, passwd, id_user) VALUES (
+        $query =  "INSERT INTO logon (logon, passwd) VALUES (
         '".$logon->getLogon()."','".
-            $logon->getPasswd()."','".
-            $logon->getId_user()."')";
+            $logon->getPasswd()."')";
         return $query;
     }
 
@@ -40,9 +38,19 @@ class LogonController
         $crit = $this->generateCriteria($params);
         $db = new DatabaseConnector("localhost", "NutritionAnalyses", "mysql", "", "root", "");
         $conn = $db->getConnection();
-        $result = $conn->query("SELECT logon, passwd, id_user FROM logon WHERE ".$crit);
+        $result = $conn->query("SELECT logon, passwd FROM logon WHERE ".$crit);
         //foreach($result as $row)
         return $result->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function delete($request)
+    {
+        $params = $request->getParams();
+        $crit = $this->generateCriteria($params);
+        $db = new DatabaseConnector("localhost", "NutritionAnalyses", "mysql", "", "root", "");
+        $conn = $db->getConnection();
+        $result = $conn->query("DELETE FROM logon WHERE ".$crit);
+        return $result;
     }
 
      private function generateCriteria($params)
@@ -50,10 +58,33 @@ class LogonController
         $criteria = "";
         foreach($params as $key => $value)
         {
-            $criteria = $criteria.$key." LIKE '%".$value."%' OR ";
+            $criteria = $criteria.$key." LIKE '".$value."' AND ";
         }
         return substr($criteria, 0, -4);
     }
+
+    public function update($request)
+    {
+        if(!empty($_GET["logon"]) && !empty($_GET["passwd"])) 
+        {
+            $logon = addslashes(trim($_GET["logon"]));
+            $passwd = addslashes(trim($_GET["passwd"]));
+            $params = $request->getParams();
+            $db = new DatabaseConnector("localhost", "NutritionAnalyses", "mysql", "", "root", "");
+            $conn = $db->getConnection();
+            $result = $conn->prepare("UPDATE logon SET logon=:logon, passwd=:passwd WHERE logon=:logon");
+            $result->bindValue(":logon", $logon);
+            $result->bindValue(":passwd", $passwd);
+            $result->execute();
+            
+            if ($result->rowCount() > 0){
+                echo "Logon alterado com sucesso!";
+            } else {
+                echo "Logon não atualizado";
+            }
+        }
+    }     
+
      private function isValid($params)
     {
         $keys = array_keys($params);
