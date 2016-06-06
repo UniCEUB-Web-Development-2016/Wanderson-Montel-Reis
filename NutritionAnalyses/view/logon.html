@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+  </head>
+
+  <body>
+    <nav class="menu">
+      <ul id="navigationMenu">
+        <li><a class="home" href="file:///C:/xampp/htdocs/NutritionAnalyses/bootstrap/home.html"><span>Home</span></a></li>
+        <li><a class="sobre" href="#"><span>Sobre</a></span></li>
+        <li><a class="links" href="#"><span>Links</a></span></li>
+        <li><a class="contato" href="http://google.com.br"><span>Contato</a></span>
+        <li><a class="logon" href="#"><span>Logon</a></span></li>
+        </li>
+      </ul>
+    </nav>
+      <div id="descricao">
+          <p id="textMaster">Aqui você encontra análises para entender melhor o que acontece com seu corpo.</p>
+          <p id="sunText">
+            Preencha formulário abaixo e tenha acesso as análises para avaliar sua saúde.
+          </p>
+      </div>
+      <div>
+        <img src=""></img>
+        <form action="" enctype="multipart/form-data" method="POST">
+          <fieldset>
+            <h2>Insira aqui os seus dados.</h2>
+            <label for="name">Name: </label><input type="text" id="name" name="name" autofocus="" required><br>
+            <label for="cpf">Cpf: </label><input type="cpf" name="cpf" required><br>
+            <label for="email">Email: </label><input type="email" name="email" required><br>   
+            <label for="logon">Logon: </label><input type="logon" name="logon" required ><br>
+            <label for="password">Password: </label><input type="password" name="password" required><br>
+            </fieldset><br>
+            <input id="button" type="submit" name="upload_btn" value="Registrar" style="margin-bottom:20px; padding: 10px;">
+        </div>
+    </div>
+  </body>
+</html>
