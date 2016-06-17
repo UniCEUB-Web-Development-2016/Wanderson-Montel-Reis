@@ -1,0 +1,123 @@
+*{
+	/* A universal CSS reset */
+	margin:0;
+	padding:0;
+
+}
+.menu ul {
+	padding: 20px;
+	margin: 0px;
+	list-style: none;
+	background-image:-moz-radial-gradient(center -100px 45deg, circle farthest-corner, #444 150px, #111 300px);
+	background-image:-webkit-gradient(radial, 50% 0, 150, 50% 0, 300, from(#444), to(#111));
+
+}
+
+.menu ul li { 
+	display: inline; 
+	list-style:none;
+	height:39px;
+	padding:2px;
+	width:40px;
+}
+
+.menu ul li a {
+	padding: 3px 20px;
+	display: inline-block; 
+	/* visual do link */
+	background-color: #EDEDED;
+	color: #00008B;
+	border-radius: 10px;
+	text-decoration: none;
+	border-bottom:3px solid #00008B;
+	border-top: 3px solid #00008B;
+	font-family: Georgia;
+	font-size: 20px;
+}
+
+.menu ul li a:hover {
+	background-color:#D6D6D6;
+	color: #6D6D6D;
+	border-bottom:3px solid dodgerblue;
+
+}
+
+body{
+	text-align: center;
+	background:#111 no-repeat;
+}
+#textMaster{
+	padding: 50px 50px 20px 50px;
+	color: white;	
+	text-align: center;
+	font-size: 30px;
+
+	border-style: solid;
+    border-bottom-width: 0px;
+    border-top-width: 5px;
+    border-right-width: 0;
+    border-left-width: 0;
+    border-color: silver; 
+}
+#sunText{
+	text-align: center;
+	color: white;
+	font-size: 30px;
+	padding-bottom: 20px;
+
+    border-style: solid;
+    border-bottom-width: 5px;
+    border-top-width: 0px;
+    border-right-width: 0;
+    border-left-width: 0;
+    border-color: silver; 
+}
+
+label{
+	 width: 180px;
+	 display: inline-block;
+	 vertical-align: text-top;
+	 text-align: left;				
+	 margin-top: -4px;
+	 font-family: Arial Black;
+	 font-size: 15px;
+	}
+
+h2{
+	text-align: center
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: #0B486B;
+}
+form{
+	padding-top: 100px;
+}
+
+fieldset{
+		padding: 50px;
+		padding-left: 2px;
+		padding-right: 2px;
+		margin-top: -40px;
+		display: inline; 
+		background: Lightyellow;
+		border: 8px solid #0B486B;
+		line-height: 22px;  word-spacing: 2px;
+		width: 500px;
+		background-image: url(img/analises.jpg);
+		}
+
+img{
+	background-image: url(img/analises.jpg);
+	margin-left: -50px;
+}
+
+#button{
+	background-color: Lightyellow; 	
+	border-color: black;
+}
+
+#formatMenu{
+	background: dodgerblue;
+	background-size: 1000px
+}
+
