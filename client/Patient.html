@@ -1,20 +1,28 @@
+<?php>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" type="text/css" href="patient.css" />
-    
+    <link rel="stylesheet" type="text/css" href="css/patient.css" />
   </head>
 
   <body>
-    <p>Seja bem vindo aqui, vc vai encontrar diversar funcionalidades para o seu benefício.<p>
-    <p>Faça o upload do seu arquivo aqui<p>
+    <a href="patientInformations.html">Configurações do perfil</a>
+    <div class="wrap">  
+      <div class="flip-container" id='flippr'>
+        <div class="flipper">
+          <div class="front"></div>
+          <div class="back"></div>
+        </div>
+      </div>
+      
+      <h1 class="text" id="welcome">Seja Bem Vindo!<br> <span>Aqui você deve inserir seu exame laboratorial. </span></h1>
 
-    <form action="" method="post" enctype="multipart/form-data"> 
-      <input type="file" name="Arquivo" id="Arquivo"><br> 
-      <input type="submit" value="Enviar"><br> 
-      <input type="reset" value="Apagar"> <br>
-    </form>
+      <form ectype="multipart/form-data" action="salvar.php" method="post">
+      Arquivo <input type="file" name="arquivo">
+      <input type="submit" value="Enviar arquivo" >
+      </form>
+    </div><!-- /wrap -->
   </body>
 </html>

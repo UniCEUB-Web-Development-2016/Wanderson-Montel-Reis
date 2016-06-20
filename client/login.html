@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+  </head>
+
+  <body>
+    <div class="wrap">  
+      <div class="flip-container" id='flippr'>
+        <div class="flipper">
+          <div class="front"></div>
+          <div class="back"></div>
+        </div>
+      </div>
+      
+      <h1 class="text" id="welcome">Seja Bem Vindo!<br> <span>Faça aqui o seu login.</span></h1>
+      
+      <form enctype="multipart/form-data" method="POST" action="valida.php">
+        <input type="text" id="username" name="logon" placeholder="username" required="">
+        <input type="password" id="passwd" name="passwd" placeholder="Password" required="">
+          
+        <div class="login">
+          <a href="#"><i class="icon-cog"></i> Esqueceu a senha?</a>
+          <input type="submit" value="entrar" id="entrar" name="entrar"><br>
+        </div><!-- /login -->
+      </form>
+    </div><!-- /wrap -->
+  </body>
+</html>

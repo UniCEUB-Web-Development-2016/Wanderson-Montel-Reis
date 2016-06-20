@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<?php> 
+!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
@@ -12,9 +13,9 @@
     <nav class="menu">
       <ul id="navigationMenu">
         <li><a class="home" href="home.html"><span>Home</span></a></li>
-        <li><a class="sobre" href="#"><span>Sobre</a></span></li>
+        <li><a class="sobre" href="Projeto.html "><span>Sobre</a></span></li>
         <li><a class="contato" href="http://google.com.br"><span>Contato</a></span>
-        <li><a class="logon" href="logon.html"><span>Login</a></span></li>
+        <li><a class="logon" href="login.html"><span>Login</a></span></li>
         </li>
       </ul>
     </nav>
@@ -28,7 +29,7 @@
       </div>
       <div>
         <img src=""></img>
-        <form action="insertuser.php" enctype="multipart/form-data" method="POST">
+        <form action="insertuser.php" enctype="multipart/form-data" name="form1" method="POST">
           <fieldset>
             <h2>Insira aqui os seus dados.</h2>
             <label for="name">Name: </label><input type="text" id="name" name="name" autofocus="" required><br>
